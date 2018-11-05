@@ -82,10 +82,56 @@ class Typing:
     def __init__(self, character_str):
         self.character_str = character_str
     
-    def check(self):
-        for i in range(len(self.character_str)):
-            element = input()
-            while element != self.character_str[i]:
-                print("Wrong !")
-                element = input()
-        print("Successful !")  
+    def typing_boss(self):
+        essai = self.character_str
+
+        """pygame.init()"""
+        window = pygame.display.set_mode((size_window, size_window))
+        background = pygame.image.load(picture_background).convert()
+        window.blit(background, (0,0))
+                    
+        # Text writting
+        font = pygame.font.Font(None, 36)
+        text1 = font.render("I'm the boss of this level !", 1, (255,255,255))
+        text2 = font.render("Type this message our you will die :", 1, (255,255,255))
+        text3 = font.render("\"" + essai + "\"", 1, (255,255,255))
+        text4 = font.render("Wrong !", 1, (255,255,255))
+        text5 = font.render("You survive !", 1, (255,255,255))
+        text6 = font.render("Please press Enter !", 1, (255,255,255))
+
+        user_input = []
+
+        continuer = 1
+        quit = 0
+
+        window.blit(text1, (0,0))
+        window.blit(text2, (0,50))    
+        window.blit(text3, (0,80))
+        pygame.display.flip()
+
+        while quit == 0:
+
+            while continuer:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        continuer = 0
+                    else:
+                        if event.type == KEYDOWN and event.key != K_RETURN:
+                            user_input += event.unicode
+                            #print(event.unicode)
+                        if event.type == KEYDOWN and event.key == K_RETURN:
+                            continuer = 0
+                        
+            user_input_convert = "".join(user_input)
+            if user_input_convert == essai:
+                window.blit(background, (0,0))
+                window.blit(text5, (0,120))
+                window.blit(text6, (0, 150))
+                pygame.display.flip()
+            else:
+                window.blit(background, (0,0))              # FAIRE UN SYSTEM DE 3 VIES
+                window.blit(text4, (0,50))
+                pygame.display.flip()
+            for event in pygame.event.get():
+                    if event.type == QUIT or event.type == KEYDOWN and event.key == K_RETURN:
+                        quit = 1 
