@@ -76,4 +76,16 @@ class Player:
                 if self.level.structure[self.case_y + 1][self.case_x] != 'w':
                     self.case_y += 1
                     self.y = self.case_y * size_case
-        
+
+
+class Typing:
+    def __init__(self, character_str):
+        self.character_str = character_str
+    
+    def check(self):
+        for i in range(len(self.character_str)):
+            element = input()
+            while element != self.character_str[i]:
+                print("Wrong !")
+                element = input()
+        print("Successful !")  
