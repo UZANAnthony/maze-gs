@@ -52,6 +52,9 @@ while proceed:
 
     while proceed_game:
         
+        # To go directly to the boss stage (comment to play the game)
+        level.structure[player.case_y][player.case_x] = 'f'
+        
         pygame.time.Clock().tick(30)                        # Limit loop's speed
 
         for event in pygame.event.get():
