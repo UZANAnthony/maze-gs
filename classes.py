@@ -89,70 +89,85 @@ class Typing:
         window = pygame.display.set_mode((size_window, size_window))
         background = pygame.image.load(picture_background).convert()
         window.blit(background, (0,0))
+
+        continuer = 1
+        quit = 0
+        lives = 3
                     
         # Text writting
         font = pygame.font.Font(None, 36)
-        text1 = font.render("I'm the boss of this level !", 1, (255,255,255))
-        text2 = font.render("Type this to survive :", 1, (255,255,255))
+        text1 = font.render("I'm the boss of this level!", 1, (255,255,255))
+        text2 = font.render("Type this to survive:", 1, (255,255,255))
         text3 = font.render("\"" + essai + "\"", 1, (255,255,255))
-        text4 = font.render("Wrong !", 1, (255,255,255))
-        text5 = font.render("You survive !", 1, (255,255,255))
-        text6 = font.render("Please press Enter !", 1, (255,255,255))
+        text4 = font.render("Wrong!", 1, (255,255,255))
+        text5 = font.render("You survive!", 1, (255,255,255))
+        text6 = font.render("Please press Enter!", 1, (255,255,255))
+        text7 = font.render(str(lives) + " remaining!", 1, (255,255,255))
+        text8 = font.render("Press Enter to validate.", 1, (255,255,255))
 
         text1_rect = text1.get_rect(center=(450/2, 25))
         text2_rect = text2.get_rect(topleft=(0, 100))
         text3_rect = text3.get_rect(center=(450/2, 140))
-        text4_rect = text4.get_rect(center=(450/2, 25))
+        text4_rect = text4.get_rect(center=(450/2, 250))
         text5_rect = text5.get_rect(center=(450/2, 25))
         text6_rect = text6.get_rect(center=(450/2, 70))
+        text7_rect = text7.get_rect(center=(450/2, 280))
+        text8_rect = text8.get_rect(center=(450/2, 170))
         
 
         user_input = []
 
-        continuer = 1
-        quit = 0
-
+        window.blit(background, (0,0))
         window.blit(text1, text1_rect)
         window.blit(text2, text2_rect)    
         window.blit(text3, text3_rect)
+        window.blit(text8, text8_rect)
         pygame.display.flip()
 
-        while quit == 0:
+        
 
-            while continuer:
-                for event in pygame.event.get():
-                    if event.type == QUIT:
-                        continuer = 0
-                    else:
-                        if event.type == KEYDOWN and event.key != K_RETURN and event.key != "\x08":
-                            user_input += event.unicode
-                            """if user_input[0] is not None:
-                                window.blit(str(user_input_convert), (0, 160))
-                                pygame.display.flip()"""
-                        if event.type == KEYDOWN and event.key ==  "\x08":
-                            user_input = user_input[:-1]        # Remove the last letter of the string
-                        if event.type == KEYDOWN and event.key == K_RETURN:
+        while quit == 0:
+            while lives > 0:
+                while continuer:
+                    
+                    for event in pygame.event.get():
+                        if event.type == QUIT:
                             continuer = 0
-                        """if event.type == KEYDOWN:
-                            if event.key == K_RETURN:
-                                continuer = 0
-                            if event.key == K_DELETE:
-                                user_input = user_input[:-1]
-                            else:
+                        else:
+                            if event.type == KEYDOWN and event.key != K_RETURN and event.key != K_BACKSPACE:
                                 user_input += event.unicode
-                                print(user_input)"""
-                        
-            user_input_convert = "".join(user_input) 
-            if user_input_convert == essai:
-                window.blit(background, (0,0))
-                window.blit(text5, text5_rect)
-                window.blit(text6, text6_rect)
-                pygame.display.flip()
-            else:
-                window.blit(background, (0,0))              # FAIRE UN SYSTEM DE 3 VIES
-                window.blit(text4, text4_rect)
-                window.blit(text6, text6_rect)
-                pygame.display.flip()
+                            if event.type == KEYDOWN and event.key ==  K_BACKSPACE:
+                                user_input = user_input[:-1]        # Remove the last letter of the string
+                            if event.type == KEYDOWN and event.key == K_RETURN:
+                                continuer = 0
+                            
+                user_input_convert = "".join(user_input) 
+                if user_input_convert == essai:
+                    window.blit(background, (0,0))
+                    window.blit(text5, text5_rect)
+                    window.blit(text6, text6_rect)
+                    pygame.display.flip()
+                    lives = 0
+                else:
+                    user_input = []
+                    lives = lives - 1
+                    if lives == 0:
+                        text7 = font.render("You have lost!", 1, (255,255,255))
+                    else:
+                        text7 = font.render(str(lives) + " remaining !", 1, (255,255,255))
+                    window.blit(background, (0,0))
+                    window.blit(text1, text1_rect)
+                    window.blit(text2, text2_rect)    
+                    window.blit(text3, text3_rect)
+                    window.blit(text8, text8_rect)
+                    window.blit(text4, text4_rect)
+                    window.blit(text7, text7_rect)
+                    pygame.display.flip()
+                    
+                    continuer = 1
+                    
+                    
+            
             for event in pygame.event.get():
                     if event.type == QUIT or event.type == KEYDOWN and event.key == K_RETURN:
                         quit = 1 
