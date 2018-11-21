@@ -88,6 +88,7 @@ class Typing:
         """pygame.init()"""
         window = pygame.display.set_mode((size_window, size_window))
         background = pygame.image.load(picture_background).convert()
+        input_background = pygame.image.load(picture_input).convert()
         window.blit(background, (0,0))
 
         continuer = 1
@@ -108,10 +109,10 @@ class Typing:
         text1_rect = text1.get_rect(center=(450/2, 25))
         text2_rect = text2.get_rect(topleft=(0, 100))
         text3_rect = text3.get_rect(center=(450/2, 140))
-        text4_rect = text4.get_rect(center=(450/2, 250))
+        text4_rect = text4.get_rect(center=(450/2, 300))
         text5_rect = text5.get_rect(center=(450/2, 25))
         text6_rect = text6.get_rect(center=(450/2, 70))
-        text7_rect = text7.get_rect(center=(450/2, 280))
+        text7_rect = text7.get_rect(center=(450/2, 330))
         text8_rect = text8.get_rect(center=(450/2, 170))
         
 
@@ -131,7 +132,9 @@ class Typing:
                 while continuer:
                     
                     for event in pygame.event.get():
-                        if event.type == QUIT:
+                        if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
+                            quit = 1
+                            lives = 0
                             continuer = 0
                         else:
                             if event.type == KEYDOWN and event.key != K_RETURN and event.key != K_BACKSPACE:
@@ -140,6 +143,10 @@ class Typing:
                                 user_input = user_input[:-1]        # Remove the last letter of the string
                             if event.type == KEYDOWN and event.key == K_RETURN:
                                 continuer = 0
+                            text_input = font.render("".join(user_input), 1, (255,255,255))
+                            window.blit(input_background, (0,250))
+                            window.blit(text_input, (0,250))
+                            pygame.display.flip()
                             
                 user_input_convert = "".join(user_input) 
                 if user_input_convert == essai:

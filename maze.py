@@ -87,23 +87,6 @@ while proceed:
             t1 = Typing("test")
             t1.typing_boss()
             proceed_game = 0
-            """window.blit(background, (0,0))
-
-            typing_to_do = "test test"
-
-            font = pygame.font.Font(None, 36)
-            text1 = font.render("I'm the boss of this level !", 1, (255,255,255))
-            text2 = font.render("Type this message our you will die :", 1, (255,255,255))
-            text3 = font.render("\"" + typing_to_do + "\"", 1, (255,255,255))
-            text4 = font.render("Wrong !", 1, (255,255,255))
-            text5 = font.render("You survive !", 1, (255,255,255))
-
-            user_input = []
-
-            window.blit(text1, (0,0))
-            window.blit(text2, (0,50))    
-            window.blit(text3, (0,80))
-            pygame.display.flip()"""
             
 
 
