@@ -57,6 +57,9 @@ while proceed:
                 if event.key == K_F2:
                     choice = "m2.txt"
                     boss = "Avada,Kedavra"
+                if event.key == K_F3:
+                    choice = "m3.txt"
+                    boss = "cheat"
                 else :
                     wrong_key = True
                 proceed_menu = 0
@@ -75,8 +78,7 @@ while proceed:
 
         while proceed_game:
             
-            # To go directly to the boss stage (comment to play the game)
-        # level.structure[player.case_y][player.case_x] = 'f'
+        # level.structure[player.case_y][player.case_x] = 'f'           # To go directly to the boss stage (comment to play the game)
             
             pygame.time.Clock().tick(30)                        # Limit loop's speed
 

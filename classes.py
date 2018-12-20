@@ -115,7 +115,6 @@ class Typing:
         text7_rect = text7.get_rect(center=(450/2, 330))
         text8_rect = text8.get_rect(center=(450/2, 170))
         
-
         user_input = []
 
         window.blit(background, (0,0))
@@ -124,8 +123,6 @@ class Typing:
         window.blit(text3, text3_rect)
         window.blit(text8, text8_rect)
         pygame.display.flip()
-
-        
 
         while quit == 0:
             while lives > 0:
@@ -177,10 +174,11 @@ class Typing:
                     window.blit(text7, text7_rect)
                     pygame.display.flip()
                     
-                    continuer = 1
-                    
-                    
+                    continuer = 1      
             
             for event in pygame.event.get():
                     if event.type == QUIT or event.type == KEYDOWN and event.key == K_RETURN:
                         quit = 1 
+
+
+"""class Solver:"""
