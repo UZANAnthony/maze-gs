@@ -36,9 +36,11 @@ while proceed:
                 choice = 0
             
             elif event.type == KEYDOWN:
-                if event.key == K_RETURN:
+                if event.key == K_F1:
                     proceed_menu = 0
-                    choice = "maze1"
+                    choice = "m1.txt"
+                if event.key == K_F2:
+                    choice = "m2.txt"
 
     # We check if the user select a level
     if choice != 0:
@@ -53,7 +55,7 @@ while proceed:
     while proceed_game:
         
         # To go directly to the boss stage (comment to play the game)
-        level.structure[player.case_y][player.case_x] = 'f'
+       # level.structure[player.case_y][player.case_x] = 'f'
         
         pygame.time.Clock().tick(30)                        # Limit loop's speed
 

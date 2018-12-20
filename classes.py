@@ -103,7 +103,7 @@ class Typing:
         text4 = font.render("Wrong!", 1, (255,255,255))
         text5 = font.render("You survive!", 1, (255,255,255))
         text6 = font.render("Please press Enter!", 1, (255,255,255))
-        text7 = font.render(str(lives) + " remaining!", 1, (255,255,255))
+        text7 = font.render(str(lives) + " lives remaining!", 1, (255,255,255))
         text8 = font.render("Press Enter to validate.", 1, (255,255,255))
 
         text1_rect = text1.get_rect(center=(450/2, 25))
@@ -160,8 +160,14 @@ class Typing:
                     lives = lives - 1
                     if lives == 0:
                         text7 = font.render("You have lost!", 1, (255,255,255))
+                        text7_rect = text7.get_rect(center=(450/2, 330))
                     else:
-                        text7 = font.render(str(lives) + " remaining !", 1, (255,255,255))
+                        if lives > 1:
+                            text7 = font.render(str(lives) + " lives remaining!", 1, (255,255,255))
+                        else:
+                            text7 = font.render(str(lives) + " life remaining!", 1, (255,255,255))
+                            text7_rect = text7.get_rect(center=(450/2, 330))
+                        
                     window.blit(background, (0,0))
                     window.blit(text1, text1_rect)
                     window.blit(text2, text2_rect)    
