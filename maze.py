@@ -37,10 +37,10 @@ while proceed:
             
             elif event.type == KEYDOWN:
                 if event.key == K_F1:
-                    proceed_menu = 0
                     choice = "m1.txt"
                 if event.key == K_F2:
                     choice = "m2.txt"
+                proceed_menu = 0
 
     # We check if the user select a level
     if choice != 0:
