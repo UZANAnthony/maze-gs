@@ -105,11 +105,10 @@ while proceed:
             window.blit(player.icone, (player.x, player.y))
             pygame.display.flip()                                       # Update the full display Surface to the screen
 
-            if level.structure[player.case_y][player.case_x] == 'f':    # If player finished the level
-                #proceed_game = 0                                        # Back to the menu
-                t1 = Typing(boss)
-                t1.typing_boss()
-                proceed_game = 0
+            if level.structure[player.case_y][player.case_x] == 'f':    # If player finished the level                                  
+                t = Typing(boss)
+                t.typing_boss()
+                proceed_game = 0            # Back to the menu
             
 
 
