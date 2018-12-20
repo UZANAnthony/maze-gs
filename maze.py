@@ -13,19 +13,23 @@ pygame.display.set_caption(window_title)
 font = pygame.font.Font(None, 36)
 
 # Loop
+wrong_key = False    #To store if the user has entered a wrong key
 proceed = 1
 while proceed:
-    menu = pygame.image.load(picture_menu).convert()        # Load menu
+    menu = pygame.image.load(picture_menu).convert()        # Load menu                
 
     text1 = font.render("Press \"F1\" for level 1", 1, (255,255,255))
     text2 = font.render("Press \"F2\" for level 2", 1, (255,255,255))
+    text3 = font.render("Wrong key!", 1, (255,255,255))
     
     text1_rect = text1.get_rect(center=(450/2, 250))
     text2_rect = text2.get_rect(center=(450/2, 280))
+    text3_rect = text3.get_rect(center=(450/2, 330))
 
     window.blit(menu, (0,0))
     window.blit(text1, text1_rect)
     window.blit(text2, text2_rect)
+    if wrong_key: window.blit(text3, text3_rect)           
 
     pygame.display.flip()                                   # Refresh
 
@@ -54,14 +58,13 @@ while proceed:
                     choice = "m2.txt"
                     boss = "Avada,Kedavra"
                 else :
-                    text3 = font.render("Wrong key!", 1, (255,255,255))
-                    text3_rect = text3.get_rect(center=(450/2, 310))
-                    window.blit(text3, text3_rect)
-                    pygame.display.flip()
+                    wrong_key = True
                 proceed_menu = 0
 
     # We check if the user select a level
     if choice != 0:
+        wrong_key = False # For deleting the message for the new game 
+
         background = pygame.image.load(picture_background).convert()        # Load background
 
         level = Level(choice)                                               # Generate level
