@@ -179,10 +179,30 @@ class Typing:
                     if event.type == QUIT or event.type == KEYDOWN and event.key == K_RETURN:
                         quit = 1 
 
+class Stack:
+     def __init__(self):
+         self.items = []
+
+     def is_empty(self):
+         return self.items == []
+
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
 
 class Solver:
     def __init__(self):
         self.result = False
+        self.stack = 
         self.progression = {}
     
     """def move(self, direction):
