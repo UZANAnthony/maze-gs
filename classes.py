@@ -3,7 +3,6 @@ from pygame.locals import *
 from constants import *
 
 class Level:
-
     def __init__(self, file):
         self.file = file
         self.structure = 0
@@ -181,4 +180,13 @@ class Typing:
                         quit = 1 
 
 
-"""class Solver:"""
+class Solver:
+    def __init__(self):
+        self.result = False
+        self.progression = {}
+    
+    """def move(self, direction):
+
+    
+    def is_level_good(self, level):"""
+
