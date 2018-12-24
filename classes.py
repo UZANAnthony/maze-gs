@@ -202,7 +202,7 @@ class Stack:
 class Solver:
     def __init__(self):
         self.result = False
-        self.stack = 
+        self.stack = Stack()
         self.progression = {}
     
     """def move(self, direction):
