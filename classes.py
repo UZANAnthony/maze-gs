@@ -88,7 +88,6 @@ class Typing:
     def typing_boss(self):
         essai = self.character_str
 
-        """pygame.init()"""
         window = pygame.display.set_mode((size_window, size_window))
         background = pygame.image.load(picture_background).convert()
         input_background = pygame.image.load(picture_input).convert()
@@ -137,32 +136,34 @@ class Typing:
                             lives = 0
                             continuer = 0
                         else:
-                            if event.type == KEYDOWN and event.key != K_RETURN and event.key != K_BACKSPACE:
+                            if event.type == KEYDOWN and event.key != K_RETURN and event.key != K_BACKSPACE:        # Add the character in the array
                                 user_input += event.unicode
                             if event.type == KEYDOWN and event.key ==  K_BACKSPACE:
-                                user_input = user_input[:-1]        # Remove the last letter of the string
+                                user_input = user_input[:-1]                                                        # Remove the last letter of the string
                             if event.type == KEYDOWN and event.key == K_RETURN:
                                 continuer = 0
-                            text_input = font.render("".join(user_input), 1, (255,255,255))
+                            
+                            text_input = font.render("".join(user_input), 1, (255,255,255))                         # Display the user's input in real time
                             window.blit(input_background, (0,250))
                             window.blit(text_input, (0,250))
                             pygame.display.flip()
                             
-                user_input_convert = "".join(user_input) 
-                if user_input_convert == essai:
+                user_input_convert = "".join(user_input)            # Pre-processing of the user's input
+
+                if user_input_convert == essai:                     # Check if the input is the String asked, if yes the player win                
                     window.blit(background, (0,0))
                     window.blit(text5, text5_rect)
                     window.blit(text6, text6_rect)
                     pygame.display.flip()
                     lives = 0
-                else:
+                else:                                               # If not ...
                     user_input = []
                     lives = lives - 1
-                    if lives == 0:
+                    if lives == 0:                                                                          # If the player has lost his three lives, he loses the game
                         text7 = font.render("You have lost!", 1, (255,255,255))
                         text7_rect = text7.get_rect(center=(450/2, 330))
-                    else:
-                        if lives > 1:
+                    else:                                                                                   # If he still has lives, he loses one 
+                        if lives > 1:                                                                       # Customized diplay due to "life" and "lives"
                             text7 = font.render(str(lives) + " lives remaining!", 1, (255,255,255))
                         else:
                             text7 = font.render(str(lives) + " life remaining!", 1, (255,255,255))
