@@ -132,5 +132,3 @@ while proceed:
 
         else:
             level_error = True
-            
-

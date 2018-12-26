@@ -2,6 +2,8 @@ import pygame
 from pygame.locals import *
 from constants import *
 
+
+
 class Level:
     def __init__(self, file):
         self.file = file
@@ -40,6 +42,7 @@ class Level:
             num_row += 1
 
 
+
 class Player:
     def __init__(self, icon, level):
         self.icone = pygame.image.load(picture_player).convert_alpha()
@@ -75,6 +78,7 @@ class Player:
                 if self.level.structure[self.case_y + 1][self.case_x] != 'w':
                     self.case_y += 1
                     self.y = self.case_y * size_case
+
 
 
 class Typing:
@@ -179,24 +183,6 @@ class Typing:
                     if event.type == QUIT or event.type == KEYDOWN and event.key == K_RETURN:
                         quit = 1 
 
-class Stack:
-     def __init__(self):
-         self.items = []
-
-     def is_empty(self):
-         return self.items == []
-
-     def push(self, item):
-         self.items.append(item)
-
-     def pop(self):
-         return self.items.pop()
-
-     def peek(self):
-         return self.items[len(self.items)-1]
-
-     def size(self):
-         return len(self.items)
 
 
 class Solver:
@@ -219,6 +205,3 @@ class Solver:
             if ((x < len(self.maze)-1 and self.search(x+1, y)) or (y > 0 and self.search(x, y-1)) or (x > 0 and self.search(x-1, y)) or (y < len(self.maze)-1 and self.search(x, y+1))):
                 return True
             return False
-
-    
-
