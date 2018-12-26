@@ -60,6 +60,9 @@ while proceed:
                 if event.key == K_F3:
                     choice = "m3.txt"
                     boss = "cheat"
+                if event.key == K_F4:
+                    choice = "mErr.txt"
+                    boss = "Error"
                 else :
                     wrong_key = True
                 proceed_menu = 0
@@ -73,6 +76,36 @@ while proceed:
         level = Level(choice)                                               # Generate level
         level.generate()
         level.print(window)
+
+###############################################
+
+        def search(x, y):
+            if level.structure[x][y] == 'f':
+                #print ('found at %d,%d' % (x, y))
+                return True
+            elif level.structure[x][y] == 'w':
+                #print ('wall at %d,%d' % (x, y))
+                return False
+            elif level.structure[x][y] == 'v':
+                #print ('visited at %d,%d' % (x, y))
+                return False
+
+            #print ('visiting %d,%d' % (x, y))
+
+            # mark as visited
+            level.structure[x][y] = 'v'
+
+            # explore neighbors clockwise starting by the one on the right
+            if ((x < len(level.structure)-1 and search(x+1, y))
+                or (y > 0 and search(x, y-1))
+                or (x > 0 and search(x-1, y))
+                or (y < len(level.structure)-1 and search(x, y+1))):
+                return True
+            return False
+	    
+        print(search(0, 0))
+
+    ################################""
 
         player = Player("images/snake.png", level)                          # Player creation
 

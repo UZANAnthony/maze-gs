@@ -18,6 +18,10 @@ class Level:
                         row_level.append(sprite)
                 structure_level.append(row_level)
             self.structure = structure_level
+            #print(self.structure)
+            #print(self.structure[0][0])
+            #print(self.structure[1][0])
+            #print(self.structure[14][14])
     
     def print(self, window):
         wall = pygame.image.load(picture_wall).convert()
@@ -204,9 +208,18 @@ class Solver:
         self.result = False
         self.stack = Stack()
         self.progression = {}
+        self.pawn = Player()
     
-    """def move(self, direction):
+    """def process(self, level):
+        self.stack.push(self.level.structure[0][0].Text)
+        while(not self.stack.is_empty()):"""
+            
+
+        
 
     
-    def is_level_good(self, level):"""
+    #def is_level_good(self, level):
+
+
+    
 
