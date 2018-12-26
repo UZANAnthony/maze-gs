@@ -204,22 +204,35 @@ class Stack:
 
 
 class Solver:
-    def __init__(self):
+    def __init__(self, grid):
         self.result = False
-        self.stack = Stack()
-        self.progression = {}
-        self.pawn = Player()
+        self.maze = grid
+        self.x = 0
+        self.y = 0
     
-    """def process(self, level):
-        self.stack.push(self.level.structure[0][0].Text)
-        while(not self.stack.is_empty()):"""
-            
+    def search(self, x, y):
+            if self.maze[x][y] == 'f':
+                #print ('found at %d,%d' % (x, y))
+                return True
+            elif self.maze[x][y] == 'w':
+                #print ('wall at %d,%d' % (x, y))
+                return False
+            elif self.maze[x][y] == 'v':
+                #print ('visited at %d,%d' % (x, y))
+                return False
 
-        
+            #print ('visiting %d,%d' % (x, y))
 
-    
-    #def is_level_good(self, level):
+            # mark as visited
+            self.maze[x][y] = 'v'
 
+            # explore neighbors clockwise starting by the one on the right
+            if ((x < len(self.maze)-1 and self.search(x+1, y))
+                or (y > 0 and self.search(x, y-1))
+                or (x > 0 and self.search(x-1, y))
+                or (y < len(self.maze)-1 and self.search(x, y+1))):
+                return True
+            return False
 
     
 

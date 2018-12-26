@@ -77,35 +77,12 @@ while proceed:
         level.generate()
         level.print(window)
 
-###############################################
+        ########################################
 
-        def search(x, y):
-            if level.structure[x][y] == 'f':
-                #print ('found at %d,%d' % (x, y))
-                return True
-            elif level.structure[x][y] == 'w':
-                #print ('wall at %d,%d' % (x, y))
-                return False
-            elif level.structure[x][y] == 'v':
-                #print ('visited at %d,%d' % (x, y))
-                return False
+        s = Solver(level.structure)
+        print(s.search(s.x, s.y))    
 
-            #print ('visiting %d,%d' % (x, y))
-
-            # mark as visited
-            level.structure[x][y] = 'v'
-
-            # explore neighbors clockwise starting by the one on the right
-            if ((x < len(level.structure)-1 and search(x+1, y))
-                or (y > 0 and search(x, y-1))
-                or (x > 0 and search(x-1, y))
-                or (y < len(level.structure)-1 and search(x, y+1))):
-                return True
-            return False
-	    
-        print(search(0, 0))
-
-    ################################""
+        ########################################
 
         player = Player("images/snake.png", level)                          # Player creation
 
