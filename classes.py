@@ -18,10 +18,6 @@ class Level:
                         row_level.append(sprite)
                 structure_level.append(row_level)
             self.structure = structure_level
-            #print(self.structure)
-            #print(self.structure[0][0])
-            #print(self.structure[1][0])
-            #print(self.structure[14][14])
     
     def print(self, window):
         wall = pygame.image.load(picture_wall).convert()
@@ -212,25 +208,15 @@ class Solver:
     
     def search(self, x, y):
             if self.maze[x][y] == 'f':
-                #print ('found at %d,%d' % (x, y))
                 return True
             elif self.maze[x][y] == 'w':
-                #print ('wall at %d,%d' % (x, y))
                 return False
             elif self.maze[x][y] == 'v':
-                #print ('visited at %d,%d' % (x, y))
                 return False
 
-            #print ('visiting %d,%d' % (x, y))
+            self.maze[x][y] = 'v'               # To mark the case visited
 
-            # mark as visited
-            self.maze[x][y] = 'v'
-
-            # explore neighbors clockwise starting by the one on the right
-            if ((x < len(self.maze)-1 and self.search(x+1, y))
-                or (y > 0 and self.search(x, y-1))
-                or (x > 0 and self.search(x-1, y))
-                or (y < len(self.maze)-1 and self.search(x, y+1))):
+            if ((x < len(self.maze)-1 and self.search(x+1, y)) or (y > 0 and self.search(x, y-1)) or (x > 0 and self.search(x-1, y)) or (y < len(self.maze)-1 and self.search(x, y+1))):
                 return True
             return False
 
