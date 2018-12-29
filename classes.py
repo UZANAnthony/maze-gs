@@ -11,15 +11,15 @@ class Level:
 
     # We creat a list of list (1 list for 1 row)
     def generate(self):
-        with open(self.file, "r") as file:
-            structure_level = []
-            for row in file:
-                row_level = []
+        with open(self.file, "r") as file:                              # We open the file
+            structure_level = []                                        # Creation of the main array
+            for row in file:                                            # We read the file line by line
+                row_level = []                                          # Creation of a little array which represents a line
                 for sprite in row:
                     if sprite != '\n':
                         row_level.append(sprite)
-                structure_level.append(row_level)
-            self.structure = structure_level
+                structure_level.append(row_level)                       # We add the little array (the line) to the main array
+            self.structure = structure_level                            # Matrix generated
     
     def print(self, window):
         wall = pygame.image.load(picture_wall).convert()
@@ -27,9 +27,9 @@ class Level:
         finish = pygame.image.load(picture_finish).convert_alpha()
 
         num_row = 0
-        for row in self.structure:
+        for row in self.structure:                                      # Goes from line to line
             num_case = 0
-            for sprite in row:
+            for sprite in row:                                          # Goes from character to character
                 x = num_case * size_case
                 y = num_row * size_case
                 if sprite == 'w':                       # w = Wall
