@@ -195,11 +195,16 @@ class Solver:
     
     def search(self, x, y):
             if self.maze[x][y] == 'f':
+                #print("finish at %d,%d" % (x,y))
                 return True
             elif self.maze[x][y] == 'w':
+                #print("wall at %d,%d" % (x,y))
                 return False
             elif self.maze[x][y] == 'v':
+                #print("visited at %d,%d" % (x,y))
                 return False
+            
+            #print("visiting %d,%d" % (x,y))
 
             self.maze[x][y] = 'v'               # To mark the case visited
 
