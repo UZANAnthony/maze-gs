@@ -24,7 +24,7 @@ If the player fails the challeneg, he loses a life.
 
 
 
- 	Levels
+	Levels
 
 The castle gets multiple floors, each floor represents a difficulty.
 The higher you go, the more difficult it gets.
@@ -35,11 +35,11 @@ Survival event complexity:
   - level 1 : Only few different letters to tap.
   - level 2 : Ponctuation.
   - level 3 : programmation symbole.
-  - level 4 : ...
+...
 
 
 
- 	Challenges
+	Challenges
 
 
 What is the survival event ?
