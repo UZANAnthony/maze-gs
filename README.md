@@ -35,7 +35,7 @@ Survival event complexity:
   - level 1 : Only few different letters to tap.
   - level 2 : Ponctuation.
   - level 3 : programmation symbole.
-...
+  - level 4 : etc.
 
 
 
