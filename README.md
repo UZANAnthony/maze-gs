@@ -3,19 +3,19 @@
 
 
 
-- Project membre:
+ 	Project membre:
 Only me (Anthony UZAN)
 
 
 
-- Objective
+ 	Objective
 
 "Typing's castle" is a maze game which improve the memory and
 the typing rapidity of the player.
 
 
 
-- Gameplay
+	Gameplay
 
 The character is locked in multi-storey maze. The player's goal 
 is to get out of the maze alive. Indeed, the player has 3 lives.
@@ -23,7 +23,7 @@ If the player fails the challeneg, he loses a life.
 
 
 
-- Levels
+ 	Levels
 
 The castle gets multiple floors, each floor represents a difficulty.
 The higher you go, the more difficult it gets.
@@ -38,7 +38,7 @@ Survival event complexity:
 
 
 
-- Challenges
+ 	Challenges
 
 
 What is the survival event ?
@@ -47,7 +47,7 @@ The only weapon which can use our player is his keyboard.
 
 
 
-- Current progress
+ 	Current progress
 
 Done:
   - Maze generator (2 levels)
