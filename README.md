@@ -2,31 +2,28 @@
 		_______________
 
 
-#########################
--       Objective       -
-#########################
+
+- Project membre:
+Only me (Anthony UZAN)
+
+
+
+- Objective
 
 "Typing's castle" is a maze game which improve the memory and
 the typing rapidity of the player.
 
 
 
-#########################
--       Gameplay        -
-#########################
+- Gameplay
 
-The character (a little plant or a little flame) is locked in 
-multi-storey maze. The player's goal is to get out of the maze alive.
-Indeed, the player have 3 lives.
-There are two possibilities to lose a life:
-  - the player runs out of time to finish the stage.
-  - the player loses the survival event.
+The character is locked in multi-storey maze. The player's goal 
+is to get out of the maze alive. Indeed, the player has 3 lives.
+If the player fails the challeneg, he loses a life.
 
 
 
-#########################
--        Levels         -
-#########################
+- Levels
 
 The castle gets multiple floors, each floor represents a difficulty.
 The higher you go, the more difficult it gets.
@@ -35,28 +32,30 @@ complexity.
 
 Survival event complexity:
   - level 1 : Only few different letters to tap.
-  - level 2 : More letters.
-  - level 3 : the player has to erase the errors with "<-" button.
-  - level 4 : ponctuation.
-  - level 5 : programmation symbole.
-  - level 6 : ...
+  - level 2 : Ponctuation.
+  - level 3 : programmation symbole.
+  - level 4 : ...
 
 
 
-#########################
--       Challenges      -
-#########################
+- Challenges
+
 
 What is the survival event ?
-The player have a short time to type the text print on the screen 
-under some conditions.
+The player has to type the text print on the screen under some conditions.
 The only weapon which can use our player is his keyboard.
 
 
 
-#########################
--   Current progress    -
-#########################
+- Current progress
 
-I'm working on :
-  - the maze generator
+Done:
+  - Maze generator (2 levels)
+  - Maze solver
+  - Challenges
+  - Playable version
+
+What's next?:
+  - Generator without txt file
+  - Timer for the challenge
+  - More levels
