@@ -51,10 +51,10 @@ The only weapon which can use our player is his keyboard.
  	Current progress
 
 Done:
-  - Maze generator (2 levels)
+  - Maze generator 
   - Maze solver
   - Challenges
-  - Playable version
+  - Playable version (2 levels)
 
 What's next?:
   - Generator without txt file
