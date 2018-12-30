@@ -20,7 +20,7 @@ the typing rapidity of the player.
 
 The character is locked in multi-storey maze. The player's goal 
 is to get out of the maze alive. Indeed, the player has 3 lives.
-If the player fails the challeneg, he loses a life.
+If the player fails the challenge, he loses a life.
 
 
 
